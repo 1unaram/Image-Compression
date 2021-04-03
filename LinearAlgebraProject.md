@@ -370,6 +370,7 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 ![image](https://user-images.githubusercontent.com/37824335/113485622-81266500-94e9-11eb-9002-c6ba39e47722.png)
 
 -term1 : 원본 이미지를 두고도 두 사진을 구분하기 어려울 정도로 비슷했다.
+
 ![image](https://user-images.githubusercontent.com/37824335/113485528-ee85c600-94e8-11eb-9f01-e40951004c47.png)
 
 -term2 : 위의 사진 속에서는 잘 안보일지 모르지만 사진을 확대하거나 화면을 어둡게 하면 희미하게 형태가 보인다. term3 와 비교했을 때 확실히 세로선 위주로 출력됨을 알 수 있다.
