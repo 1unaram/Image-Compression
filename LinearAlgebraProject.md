@@ -347,8 +347,10 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 ### • (b) Show that the IDHWT A = HBH^T is given as
 ![image](https://user-images.githubusercontent.com/37824335/113485227-723eb300-94e7-11eb-8d6b-b1660335d268.png)
 : (a)와 같은 방식으로 각 term 을 변수에 저장하였고 이를 np.array 타입으로 덧셈 연산을 해주었다. 그러나 두 식이 다르다는 결과가 나왔고 값이 다른 요소를 각 행렬에서 출력해보았는데 다음 이미지와 같이 매우 작은 값이 다름을 알게 되었다.
+
 ![image](https://user-images.githubusercontent.com/37824335/113485305-c8abf180-94e7-11eb-99c5-ac1032695745.png)
 위와 같은 결과가 나온 이유를 생각해보았고, 원인은 정규화로 인하여 수가 매우 작아졌기 때문이었다. (b)를 증명하기 위해 A 는 이미지 파일을 255 로 나누어 정규화 해준 행렬을, H 는 각 column 의 길이가 1 이 되도록 정규화한 Haar Matrix 를 사용했기에 float 타입으로 표현하다 보니 수가 올림 되었기 때문이라고 생각하였다. 그래서 이미지 정규화와 Haar Matrix 정규화 연산을 제외시키고 다시 비교를 해보니 주어진 식이 참이라는 결과를 얻게 되었다.
+
 ![image](https://user-images.githubusercontent.com/37824335/113485317-d95c6780-94e7-11eb-8fc4-eccf953c2116.png)
 
 ### • (c) Each term in (b) is an n × n matrix. Show each term in (b) as an image, and discuss what each of matrices contains.
