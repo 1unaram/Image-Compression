@@ -201,3 +201,141 @@ for s in range(int(math.log2(n)/math.log2(2)) + 1):
 
 #### -Image filled with low frequency components-
 ![image](https://user-images.githubusercontent.com/37824335/113483592-369feb00-94df-11eb-9f90-9bd14188a5ff.png)
+
+### • (b) Describe any difference between low-freq. image and high-freq. image.
+: high-freq. image 와 low-freq. image 를 선정하는 기준은 행렬의 각 요소와 주변 값들과의 차이 즉, 이미지의 색 변화 정도의 차이가 크면 high frequency 요소가 많은 것이고, 차이가 작다면 low frequency 요소가 많은 것으로 간주하여 high-freq. image 는 인물 사진, low-freq. image 는 구름 있는 하늘 사진으로 선정하였다. 두 이미지의 차이는 k 값이 원본 이미지의 픽셀 값에서 낮아질수록 인물과 구름은 비슷한 정도 차이로 화질이 변화하였지만 구름 사진의 하늘 부분은 색 변화가 극심하지 않아 k 값이 16 일 때까지는 형태를 알아볼 수 있었고 전 단계와 차이도 크지 않았다.
+
+### • (c) Discuss any findings or thoughts.
+: - (a)에서 k 값을 증가하면서 화질 변화를 확인하였을 때, 인물사진의 원본 픽셀이 512 x 512 였지만 128 x 128 즉 저장공간을 1/16 으로 줄였음에도 불구하고 인물의 이목구비와 옷에 써져 있는 글씨 등은 알아볼 수 있었다. 동시에 사진 압축 기술인 DHWT 와 IDHWT 을 고안해낸 것에서 대단함을 느꼈다.
+
+* * *
+
+# 3. For n-point Haar matrix H, define Hl and Hh as follows. That is, Hl and Hh are the top half and bottom half rows of HT . Note that Hl (or Hh) is a part of basis capturing relatively low (or high) frequency components.
+
+### • Code(3)
+```python
+import cv2
+import numpy as np
+import math
+
+
+# ImageFile load
+ImageFile = '../image/Lenna.png'
+imgMat = cv2.imread(ImageFile, 0) / 255
+n, n = imgMat.shape
+
+
+# Denormalized_HaarMatrix return function
+def dHaarMatrix(n):
+    if n == 1:
+        return np.array([1.0])
+    else:
+        hm = np.kron(dHaarMatrix(int(n / 2)), ([1], [1]))
+        hi = np.kron(np.identity(int(n / 2), dtype=int), ([1], [-1]))
+        h = np.hstack([hm, hi])
+        h = np.array(h, dtype=float)
+
+    return h
+
+
+# Normalize HaarMatrix function
+def normalize(h, n):
+    for i in range(0, n):
+        temp = 0
+        j = 0
+
+        for j in range(0, n):
+            if h[j][i] != 0:
+                temp += 1
+
+        if temp != 0:
+            h[:, i] = 1 / math.sqrt(temp) * h[:, i]
+
+    return h
+
+
+# DHWT B return function
+def DHWT(imgMat, HaarMat):
+    return np.dot(np.dot(HaarMat.T, imgMat), HaarMat)
+
+
+# IDWHT A return function
+def IDHWT(imgMat, HaarMat):
+    return np.dot(np.dot(HaarMat, imgMat), HaarMat.T)
+
+
+# check if two matrices are same function
+def checkMat(mat1, mat2, alphabet):
+    for i in range(n):
+        for j in range(n):
+            if mat1[i, j] != mat2[i, j]:
+                print(alphabet + " : Given expression is False!")
+                return False
+
+    print(alphabet + " : Given expression is True!")
+    return True
+
+
+# (a)
+HaarMat = normalize(dHaarMatrix(n), n)
+Hl = HaarMat.T[:int(n / 2), :]
+Hh = HaarMat.T[int(n / 2):, :]
+
+matA1 = IDHWT(imgMat, Hl)
+matA2 = np.dot(np.dot(Hl, imgMat), Hh.T)
+matA3 = np.dot(np.dot(Hh, imgMat), Hl.T)
+matA4 = IDHWT(imgMat, Hh)
+
+resultA = np.vstack([np.hstack([matA1, matA2]), np.hstack([matA3, matA4])])
+
+checkMat(DHWT(imgMat, HaarMat), resultA, '(a)')
+
+
+# (b)
+matB1 = DHWT(IDHWT(imgMat, Hl), Hl)
+matB2 = np.dot(np.dot(Hl.T, np.dot(np.dot(Hl, imgMat), Hh.T)), Hh)
+matB3 = np.dot(np.dot(Hh.T, np.dot(np.dot(Hh, imgMat), Hl.T)), Hl)
+matB4 = DHWT(IDHWT(imgMat, Hh), Hh)
+
+resultB = matB1 + matB2 + matB3 + matB4
+
+checkMat(IDHWT(DHWT(imgMat, HaarMat), HaarMat), resultB, '(b)')
+
+
+# (c)
+cv2.imwrite('../image/IDHWT(b)/(Lenna)Reconstructed-term1.jpg', matB1 * 255)
+cv2.imwrite('../image/IDHWT(b)/(Lenna)Reconstructed-term2.jpg', matB2 * 255)
+cv2.imwrite('../image/IDHWT(b)/(Lenna)Reconstructed-term3.jpg', matB3 * 255)
+cv2.imwrite('../image/IDHWT(b)/(Lenna)Reconstructed-term4.jpg', matB4 * 255)
+
+
+# (d)
+Hll = Hl[:int(n / 4), :]
+Hlh = Hl[int(n / 4):, :]
+
+matD1 = DHWT(IDHWT(imgMat, Hll), Hll)
+matD2 = np.dot(np.dot(Hll.T, np.dot(np.dot(Hll, imgMat), Hlh.T)), Hlh)
+matD3 = np.dot(np.dot(Hlh.T, np.dot(np.dot(Hlh, imgMat), Hll.T)), Hll)
+matD4 = DHWT(IDHWT(imgMat, Hlh), Hlh)
+
+resultD = matD1 + matD2 + matD3 + matD4
+
+checkMat(matB1, resultD, '(d)')
+
+cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term1.jpg', matD1 * 255)
+cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term2.jpg', matD2 * 255)
+cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term3.jpg', matD3 * 255)
+cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
+```
+
+### • Main Code Description
+|Line|Description|
+|:-----:|:----:|
+|41-43|DHWT 연산을 하여 B를 반환하는 함수|
+|46-48|IDHWT 연산을 하여 A를 반환하는 함수|
+|51-60|(a), (b), (d) 문제에서 좌변의 식과 우변의 식이 같은지를 검사하는 함수로 중첩 반복문으로 행렬의 각 요소를 비교하도록 함|
+|63-75|(a)를 수행하기 위한 구문. Normalized Haar Matrix를 슬라이싱하여 Hl과 Hh를 만들어 각 term을 변수 matA1부터 matA4까지 저장하고 np.hstack()과 np.vstack()연산으로 행렬을 연결하여 checkMat()함수 호출|
+|78-86|(b)를 수행하기 위한 구문. 각 term을 변수 matB1부터 matB4까지 저장하고 반환된 행렬은 numpy라이브러리에서 제공하는 np.array로 반환되기에 행렬의 덧셈은 + 연산자로 덧셈 수행하여 결과 값을 checkMat()함수 인자로 넘겨줌|
+|89-93|(c)를 수행하기 위한 구문으로 (b)에서 연산한 4개의 term을 파일로 저장|
+|96-112|(d)를 수행하기 위한 구문으로 Hl을 슬라이싱하여 Hll과 Hlh를 만들어 각 term 을 변수 matD1부터 matD4까지 저장하고 덧셈 연산하여 checkMat() 함수 호출. 각 term을 파일로 저장|
+
