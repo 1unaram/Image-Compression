@@ -374,8 +374,8 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 
 ![image](https://user-images.githubusercontent.com/37824335/113485528-ee85c600-94e8-11eb-9f01-e40951004c47.png)
 
--term2 : 위의 사진 속에서는 잘 안보일지 모르지만 사진을 확대하거나 화면을 어둡게 하면 희미하게 형태가 보인다. term3 와 비교했을 때 확실히 세로선 위주로 출력됨을 알 수 있다.<br>
--term3 : 마찬가지로 희미하게 보인다. term2 와 비교했을 때 확실히 가로선 위주로 출력됨을 알 수 있다. 구름의 가로 길이가 세로 길이보다 길어 더 많은 선을 출력하였다.<br>
+-term2 : 위의 사진 속에서는 잘 안보일지 모르지만 사진을 확대하거나 화면을 어둡게 하면 희미하게 형태가 보인다. term3 와 비교했을 때 확실히 세로선 위주로 출력됨을 알 수 있다.
+-term3 : 마찬가지로 희미하게 보인다. term2 와 비교했을 때 확실히 가로선 위주로 출력됨을 알 수 있다. 구름의 가로 길이가 세로 길이보다 길어 더 많은 선을 출력하였다.
 -term4 : 거의 보이지 않지만 term2 와 term3 를 보강하는 선들이 보인다.
 
 => high frequency 가 함유된 이미지보다 low frequency 가 함유된 이미지가 term1 에서는 원본 이미지와 큰 차이를 보이지는 않지만 term2, 3, 4 에서는 인접한 물체의 색 차이가 크지 않아 선이 뚜렷하지 않고 희미하게 보임을 알 수 있었다.
@@ -395,6 +395,7 @@ Show each term as an image on the screen, and interpret them.
 ![image](https://user-images.githubusercontent.com/37824335/113485803-63a5cb00-94ea-11eb-83f9-75187d5a2501.png)
 
 -term2, 3, 4 : (b)에서의 term2, 3, 4 보다 더 뚜렷하다.
+
 ![image](https://user-images.githubusercontent.com/37824335/113485817-715b5080-94ea-11eb-86b2-8f434602a97a.png)
 ![image](https://user-images.githubusercontent.com/37824335/113485824-7ae4b880-94ea-11eb-983c-fcc83db55838.png)
 ![image](https://user-images.githubusercontent.com/37824335/113485829-83d58a00-94ea-11eb-9482-9dfae90928bf.png)
@@ -405,5 +406,5 @@ Show each term as an image on the screen, and interpret them.
 
 * * *
 
-〮 Discussion
+# Discussion
 - (b)와 (d)에서 수행한 내용은 DHWT했던 이미지를 IDHWT로 복원할 때 상대적인 low frequency 성분과 high frequency 성분을 분리한 후 그 중 low frequency 성분에 대해 이미지를 복원하여 출력하여 의미를 해석하는 것이다. 사람이 눈으로 보는 이미지라는 것이 low freq.성분과 high freq.성분으로 나뉘며 이것을 보통 구분할 수 없지만 이번 프로젝트를 통해 이를 구분하여 볼 수 있었던 점이 좋은 경험이 되었다.
