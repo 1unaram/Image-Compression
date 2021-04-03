@@ -6,7 +6,7 @@
 #### (e) Perform the inverse 2-D Discrete Haar Wavelet Transform (IDHWT) Aˆ = HBHˆ H^(T).
 #### (f) Show the reconstructed image Aˆ on the screen.
 
-### • CODE
+### • CODE(1)
 ```
 import cv2
 import numpy as np
@@ -60,3 +60,5 @@ AHat = getAHat(BHat, HaarMat)
 cv2.imshow('test', AHat)
 cv2.waitKey(0)
 ```
+### • How to Work(1)
+: 사용자에게 s 값을 입력 받아 B hat 을 생성할 때 사용할 k 를 지정해주었고, 이에 따라 이미지를 윈도우에 보여주도록 함.
