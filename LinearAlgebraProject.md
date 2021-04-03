@@ -342,6 +342,7 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 ### • (a) Show that the DHWT B = H^(T)AH is given as
 ![image](https://user-images.githubusercontent.com/37824335/113485110-f9d7f200-94e6-11eb-92fb-7659c35351ef.png)
 :HlAHl^(T) 는 matA1, HlAHh^(T) 는 matA2, HhAHl^(T) 는 matA3, HhAHh^(T) 는 matA4변수에 연산 결과를 저장하였고 각 term 을 연결하여 resultA 에 저장하였다. resultA 와 H^(T)AH 를 checkMat() 함수에 인자로 넘겨줌으로써 두 행렬이 같은지 확인함.
+
 ![image](https://user-images.githubusercontent.com/37824335/113485198-63f09700-94e7-11eb-84e0-3536e38fafcf.png)
 
 ### • (b) Show that the IDHWT A = HBH^T is given as
@@ -374,7 +375,9 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 ![image](https://user-images.githubusercontent.com/37824335/113485528-ee85c600-94e8-11eb-9f01-e40951004c47.png)
 
 -term2 : 위의 사진 속에서는 잘 안보일지 모르지만 사진을 확대하거나 화면을 어둡게 하면 희미하게 형태가 보인다. term3 와 비교했을 때 확실히 세로선 위주로 출력됨을 알 수 있다.
+
 -term3 : 마찬가지로 희미하게 보인다. term2 와 비교했을 때 확실히 가로선 위주로 출력됨을 알 수 있다. 구름의 가로 길이가 세로 길이보다 길어 더 많은 선을 출력하였다.
+
 -term4 : 거의 보이지 않지만 term2 와 term3 를 보강하는 선들이 보인다.
 
 => high frequency 가 함유된 이미지보다 low frequency 가 함유된 이미지가 term1 에서는 원본 이미지와 큰 차이를 보이지는 않지만 term2, 3, 4 에서는 인접한 물체의 색 차이가 크지 않아 선이 뚜렷하지 않고 희미하게 보임을 알 수 있었다.
