@@ -339,3 +339,5 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 |89-93|(c)를 수행하기 위한 구문으로 (b)에서 연산한 4개의 term을 파일로 저장|
 |96-112|(d)를 수행하기 위한 구문으로 Hl을 슬라이싱하여 Hll과 Hlh를 만들어 각 term 을 변수 matD1부터 matD4까지 저장하고 덧셈 연산하여 checkMat() 함수 호출. 각 term을 파일로 저장|
 
+### • (a) Show that the DHWT B = H^(T)AH is given as
+![image](https://user-images.githubusercontent.com/37824335/113485110-f9d7f200-94e6-11eb-92fb-7659c35351ef.png)
