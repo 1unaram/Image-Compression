@@ -7,7 +7,7 @@
 #### (f) Show the reconstructed image Aˆ on the screen.
 
 ### CODE
-'''
+```
 import cv2
 import numpy as np
 import math
@@ -59,4 +59,4 @@ BHat = getBHat(B, s, n)
 AHat = getAHat(BHat, HaarMat)
 cv2.imshow('test', AHat)
 cv2.waitKey(0)
-'''
+```
