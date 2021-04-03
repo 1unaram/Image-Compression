@@ -192,3 +192,8 @@ for s in range(int(math.log2(n)/math.log2(2)) + 1):
 |43-45|DHWT을 수행하여 B를 반환하는 함수로, np.dot() 연산으로 행렬 곱 수행|
 |48-60|B의 kxk upper left corner를 제외한 나머지 요소를 0으로 바꾸어 B hat을 반환하는 함수|
 |69-86|반복문 for로 2^s가 n이 될 때까지 s값을 0부터 1씩 증가됨에 따라 k값이 증가하고 이에 재구성된 이미지를 cv2.imwrite()로 저장하는 구문. Line9, 10에서 이미지를 255로 나누어 정규화 해주었으므로 여기서 255를 다시 스칼라 곱을 해주어 원본 이미지 행렬을 만들도록 함|
+
+### • (a) As k increases, observe the quality of reconstructed image.
+: high-freq. image 의 재구성된 이미지를 ./LAproject/image/highResult 에, lowfreq. image 의 재구성된 이미지를 ./LAproject/image/lowResult 에 저장하도록 하였음.
+![image](https://user-images.githubusercontent.com/37824335/113482454-cf336c80-94d9-11eb-94dd-1f294de926e6.png)
+
