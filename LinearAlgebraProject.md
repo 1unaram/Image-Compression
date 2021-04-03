@@ -188,4 +188,7 @@ for s in range(int(math.log2(n)/math.log2(2)) + 1):
 |:-----:|:----:|
 |9-10|cv2.imread로 불러온 이미지 파일 행렬 각 요소를 255로 나눠줌으로 정규화|
 |14-24|denormalized Haar Matrix를 반환하는 함수로써, 크로네커 곱을 수행하는 np.kron() 연산과 단위행렬을 만드는 np.identity(), 두 행렬을 연결하는 np.hstack(), 행렬 요소를 실수형으로 반환하는 dtype=float을 사용하여 구성되었으며 재귀 함수로 구성|
-|27-40|테스트2|
+|27-40|Denormalized Haar Matrix의 각 column의 길이가 1이 되도록 정규화|
+|43-45|DHWT을 수행하여 B를 반환하는 함수로, np.dot() 연산으로 행렬 곱 수행|
+|48-60|B의 kxk upper left corner를 제외한 나머지 요소를 0으로 바꾸어 B hat을 반환하는 함수|
+|69-86|반복문 for로 2^s가 n이 될 때까지 s값을 0부터 1씩 증가됨에 따라 k값이 증가하고 이에 재구성된 이미지를 cv2.imwrite()로 저장하는 구문. Line9, 10에서 이미지를 255로 나누어 정규화 해주었으므로 여기서 255를 다시 스칼라 곱을 해주어 원본 이미지 행렬을 만들도록 함|
