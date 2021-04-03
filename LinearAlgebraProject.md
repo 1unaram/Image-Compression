@@ -358,22 +358,23 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 ![image](https://user-images.githubusercontent.com/37824335/113485468-9949b480-94e8-11eb-9b38-37c2506c757b.png)
 ![image](https://user-images.githubusercontent.com/37824335/113485479-a6ff3a00-94e8-11eb-9e69-c1e2c08b0c36.png)
 
-- term1 : 원본 이미지와 비교했을 때 윤곽선이 자연스럽지 않고 픽셀이 두드러지게 보임을 알 수 있다.
+-term1 : 원본 이미지와 비교했을 때 윤곽선이 자연스럽지 않고 픽셀이 두드러지게 보임을 알 수 있다.
 ![image](https://user-images.githubusercontent.com/37824335/113485502-c39b7200-94e8-11eb-86c4-7d2bfc060924.png)
 
-- term2 : 이미지의 왼쪽 옷과 뒤의 벽 사이의 경계선이 출력되지 않았고 그 사이에서 옷의 단추만 출력된 것으로 보아, 인접하는 두 물체의 색 차이가 큰 부분의 경계선만을 나타냄을 알 수 있다. 세로로 된 선 위주로 출력 됨도 알 수 있다.
+-term2 : 이미지의 왼쪽 옷과 뒤의 벽 사이의 경계선이 출력되지 않았고 그 사이에서 옷의 단추만 출력된 것으로 보아, 인접하는 두 물체의 색 차이가 큰 부분의 경계선만을 나타냄을 알 수 있다. 세로로 된 선 위주로 출력 됨도 알 수 있다.
 -term3 : term2 에서는 세로선 위주로 출력 됐다면 term3 에서는 term2 에서 출력 되지 않은 인물의 입이 출력됨으로 보아 가로선 위주로 출력 됨을 알 수 있다.
 -term4 : term2 와 term3 에서 표현되지 않은 선들을 보강해주는 느낌이었다.
 
 #### -Image filled with low frequency components-
-![image](https://user-images.githubusercontent.com/37824335/113485520-e037aa00-94e8-11eb-8a52-e75a345be523.png)
+![image](https://user-images.githubusercontent.com/37824335/113485611-7a97ed80-94e9-11eb-8a2a-0104ae9c2ddf.png)
+![image](https://user-images.githubusercontent.com/37824335/113485622-81266500-94e9-11eb-9002-c6ba39e47722.png)
 
 -term1 : 원본 이미지를 두고도 두 사진을 구분하기 어려울 정도로 비슷했다.
 ![image](https://user-images.githubusercontent.com/37824335/113485528-ee85c600-94e8-11eb-9f01-e40951004c47.png)
 
-- term2 : 위의 사진 속에서는 잘 안보일지 모르지만 사진을 확대하거나 화면을 어둡게 하면 희미하게 형태가 보인다. term3 와 비교했을 때 확실히 세로선 위주로 출력됨을 알 수 있다.
-- term3 : 마찬가지로 희미하게 보인다. term2 와 비교했을 때 확실히 가로선 위주로 출력됨을 알 수 있다. 구름의 가로 길이가 세로 길이보다 길어 더 많은 선을 출력하였다.
-- term4 : 거의 보이지 않지만 term2 와 term3 를 보강하는 선들이 보인다.
+-term2 : 위의 사진 속에서는 잘 안보일지 모르지만 사진을 확대하거나 화면을 어둡게 하면 희미하게 형태가 보인다. term3 와 비교했을 때 확실히 세로선 위주로 출력됨을 알 수 있다.
+-term3 : 마찬가지로 희미하게 보인다. term2 와 비교했을 때 확실히 가로선 위주로 출력됨을 알 수 있다. 구름의 가로 길이가 세로 길이보다 길어 더 많은 선을 출력하였다.
+-term4 : 거의 보이지 않지만 term2 와 term3 를 보강하는 선들이 보인다.
 
 => high frequency 가 함유된 이미지보다 low frequency 가 함유된 이미지가 term1 에서는 원본 이미지와 큰 차이를 보이지는 않지만 term2, 3, 4 에서는 인접한 물체의 색 차이가 크지 않아 선이 뚜렷하지 않고 희미하게 보임을 알 수 있었다.
 
