@@ -195,5 +195,6 @@ for s in range(int(math.log2(n)/math.log2(2)) + 1):
 
 ### • (a) As k increases, observe the quality of reconstructed image.
 : high-freq. image 의 재구성된 이미지를 ./LAproject/image/highResult 에, lowfreq. image 의 재구성된 이미지를 ./LAproject/image/lowResult 에 저장하도록 하였음.
-![image](https://user-images.githubusercontent.com/37824335/113482454-cf336c80-94d9-11eb-94dd-1f294de926e6.png)
 
+![image](https://user-images.githubusercontent.com/37824335/113482454-cf336c80-94d9-11eb-94dd-1f294de926e6.png)
+<center>**<Image filled with high frequency components>**</center>
