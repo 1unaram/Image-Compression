@@ -182,3 +182,10 @@ for s in range(int(math.log2(n)/math.log2(2)) + 1):
     originalImg = AHat * 255
     cv2.imwrite('../image/highResult/Reconstructed-' + str(2**s) + 'by' + str(2**s) + '.jpg', originalImg)
 ```
+
+### • Main Code Description
+|Line|Description|
+|:-----:|:----:|
+|9-10|cv2.imread로 불러온 이미지 파일 행렬 각 요소를 255로 나눠줌으로 정규화|
+|14-24|denormalized Haar Matrix를 반환하는 함수로써, 크로네커 곱을 수행하는 np.kron() 연산과 단위행렬을 만드는 np.identity(), 두 행렬을 연결하는 np.hstack(), 행렬 요소를 실수형으로 반환하는 dtype=float을 사용하여 구성되었으며 재귀 함수로 구성|
+|27-40|테스트2|
