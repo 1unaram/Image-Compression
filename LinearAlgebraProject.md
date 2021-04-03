@@ -7,7 +7,7 @@
 #### (f) Show the reconstructed image Aˆ on the screen.
 
 ### • CODE(1)
-```c
+```python
 import cv2
 import numpy as np
 import math
