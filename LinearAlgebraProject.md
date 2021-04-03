@@ -6,7 +6,7 @@
 #### (e) Perform the inverse 2-D Discrete Haar Wavelet Transform (IDHWT) Aˆ = HBHˆ H^(T).
 #### (f) Show the reconstructed image Aˆ on the screen.
 
-### CODE
+### • CODE
 ```
 import cv2
 import numpy as np
