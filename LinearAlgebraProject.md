@@ -379,6 +379,4 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 
 => high frequency 가 함유된 이미지보다 low frequency 가 함유된 이미지가 term1 에서는 원본 이미지와 큰 차이를 보이지는 않지만 term2, 3, 4 에서는 인접한 물체의 색 차이가 크지 않아 선이 뚜렷하지 않고 희미하게 보임을 알 수 있었다.
 
-
-
-
+### • (d)Repeat (a) and (b) for the first term in (b). That is, let ![image](https://user-images.githubusercontent.com/37824335/113485697-d3678600-94e9-11eb-8e1c-da36657374f4.png), and substitute this into the first term in (b) and show that
