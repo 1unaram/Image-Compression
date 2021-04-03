@@ -199,3 +199,5 @@ for s in range(int(math.log2(n)/math.log2(2)) + 1):
 #### -Image filled with high frequency components-
 ![image](https://user-images.githubusercontent.com/37824335/113482454-cf336c80-94d9-11eb-94dd-1f294de926e6.png)
 
+#### -Image filled with low frequency components-
+![image](https://user-images.githubusercontent.com/37824335/113483592-369feb00-94df-11eb-9f90-9bd14188a5ff.png)
