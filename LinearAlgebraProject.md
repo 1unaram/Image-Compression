@@ -380,3 +380,29 @@ cv2.imwrite('../image/IDHWT(d)/(Lenna)Reconstructed-term4.jpg', matD4 * 255)
 => high frequency 가 함유된 이미지보다 low frequency 가 함유된 이미지가 term1 에서는 원본 이미지와 큰 차이를 보이지는 않지만 term2, 3, 4 에서는 인접한 물체의 색 차이가 크지 않아 선이 뚜렷하지 않고 희미하게 보임을 알 수 있었다.
 
 ### • (d)Repeat (a) and (b) for the first term in (b). That is, let ![image](https://user-images.githubusercontent.com/37824335/113485697-d3678600-94e9-11eb-8e1c-da36657374f4.png), and substitute this into the first term in (b) and show that
+![image](https://user-images.githubusercontent.com/37824335/113485709-e5e1bf80-94e9-11eb-8191-013ea7e8b916.png)
+
+Show each term as an image on the screen, and interpret them.
+-(b)에서와 정규화된 이미지와 Haar Matrix 를 사용했을 때 주어진 식이 거짓임을 보였고 이 역시 매우 작은 값에서 오차가 발생함을 알고 정규화를 제외하여 비교한 결과 주어진 식이 참임을 보였다.
+![image](https://user-images.githubusercontent.com/37824335/113485718-001b9d80-94ea-11eb-9638-2992b2ad13df.png)
+
+#### -Image filled with high frequency components-
+![image](https://user-images.githubusercontent.com/37824335/113485741-26413d80-94ea-11eb-834f-7b41bd2e2369.png)
+![image](https://user-images.githubusercontent.com/37824335/113485754-335e2c80-94ea-11eb-8a39-eef33e0e1dfa.png)
+
+-term1 : (b)에서의 term1 과 비교했을 때 윤곽선의 뚜렷함이 줄어들었고 픽셀도 더 잘 보인다.
+![image](https://user-images.githubusercontent.com/37824335/113485803-63a5cb00-94ea-11eb-83f9-75187d5a2501.png)
+
+-term2, 3, 4 : (b)에서의 term2, 3, 4 보다 더 뚜렷하다.
+![image](https://user-images.githubusercontent.com/37824335/113485817-715b5080-94ea-11eb-86b2-8f434602a97a.png)
+![image](https://user-images.githubusercontent.com/37824335/113485824-7ae4b880-94ea-11eb-983c-fcc83db55838.png)
+![image](https://user-images.githubusercontent.com/37824335/113485829-83d58a00-94ea-11eb-9482-9dfae90928bf.png)
+
+#### -Image filled with low frequency components-
+![image](https://user-images.githubusercontent.com/37824335/113485844-98b21d80-94ea-11eb-82ef-e41410aeab86.png)
+![image](https://user-images.githubusercontent.com/37824335/113485848-a2d41c00-94ea-11eb-9a36-e30b7449b436.png)
+
+* * *
+
+〮 Discussion
+- (b)와 (d)에서 수행한 내용은 DHWT했던 이미지를 IDHWT로 복원할 때 상대적인 low frequency 성분과 high frequency 성분을 분리한 후 그 중 low frequency 성분에 대해 이미지를 복원하여 출력하여 의미를 해석하는 것이다. 사람이 눈으로 보는 이미지라는 것이 low freq.성분과 high freq.성분으로 나뉘며 이것을 보통 구분할 수 없지만 이번 프로젝트를 통해 이를 구분하여 볼 수 있었던 점이 좋은 경험이 되었다.
